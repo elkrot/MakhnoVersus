@@ -15,31 +15,18 @@ class MakhnoVersus:
         self.__level = Level(self)
         self.__level.load(0)
 
-  #      self.__pad = Pad((GameConstants.SCREEN_SIZE[0]/2,
-  #                       GameConstants.SCREEN_SIZE[1] - GameConstants.PAD_SIZE[1]),
-  #                       pygame.image.load(GameConstants.SPRITE_PAD)
-  #                       )
-  #      self.__balls = [
-  #          Ball((400, 400), pygame.image.load(GameConstants.SPRITE_BALL), self)
-  #     ]
-
         pygame.init()
         pygame.mixer.init()
         pygame.display.set_caption("Game Programming with Python & PyGame")
-
         self.__clock = pygame.time.Clock()
-
         self.screen = pygame.display.set_mode(GameConstants.SCREEN_SIZE, pygame.DOUBLEBUF, 32)
-
         pygame.mouse.set_visible(0)
-		
-		self.__scenes = ( PlayingGameScene(self),GameOverScene(self), HighscoreScene(self), MenuScene(self) )
+        pscena = PlayingGameScene(self)
+		self.__scenes =  (PlayingGameScene(self)
+            , GameOverScene(self), HighscoreScene(self), MenuScene(self)
 
         self.__currentScene = 3
-
-        self.__sounds = (
-            pygame.mixer.Sound(GameConstants.SOUND_FILE_GAMEOVER),
-        )
+        self.__sounds = (pygame.mixer.Sound(GameConstants.SOUND_FILE_GAMEOVER))
 		
 		
 
